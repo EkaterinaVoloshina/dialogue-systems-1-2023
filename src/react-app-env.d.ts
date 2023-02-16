@@ -37,6 +37,10 @@ interface SDSContext {
 
   title: any;
   topic: string;
+  day: string;
+  time: any;
+  username: string;
+  name: string;
 }
 
 type SDSEvent =
