@@ -141,34 +141,35 @@ const grammar: Grammar = {
 
 const getEntity = (context: SDSContext, entity: string) => {
   // lowercase the utterance and remove tailing "."
-  let u = context.recResult[0].utterance.toLowerCase().replace(/\.$/g, "").replace("on ", "");
-  console.log(u)
-  if (u in grammar) {
-    if (entity in grammar[u].entities) {
-      return grammar[u].entities[entity];
-    }
-  }
+  //let u = context.recResult[0].utterance.toLowerCase().replace(/\.$/g, "").replace("on ", "");
+  let u = context.nluResult.prediction.entities
+  if (u.length != 0) {
+	for (ent_num in u){
+		if (u[ent_num]["category"] == entity) {
+			return u[ent_num]["text"]};
+	};
+	};
   return false;
 };
 
 const parseName = (context: SDSContext, entity: string) => {
   // lowercase the utterance and remove tailing "."
-  let u = context.recResult[0].utterance.toLowerCase().replace(/\.$/g, "");
-  console.log(u)
-  if (u.startsWith("who is")) {
-    return u.replace("who is ", "").replace("?", "")
-  }
-  return false;
+  let u = context.recResult[0].utterance.replace(/\.$/g, "");
+  let match = u.match(/[A-Z][a-z]*/g).slice(1);
+  return match.join(" ")
+  //if (u.startsWith("who is")) {
+  //  return u.replace("who is ", "").replace("?", "")
+  //}
 };
 
 const getIntent = (context: SDSContext) => {
   // lowercase the utterance and remove tailing "."
-  let u = context.recResult[0].utterance.toLowerCase().replace(/\.$/g, "");
-  console.log(u)
-  if (u in grammar) {
-    return grammar[u].intent;
-  }
-  return false;
+  //let u = context.recResult[0].utterance.toLowerCase().replace(/\.$/g, "");
+  let u = context.nluResult.prediction.topIntent
+  //if (u in grammar) {
+  //  return grammar[u].intent;
+  //}
+  return u;
 };
 
 
@@ -192,10 +193,17 @@ export const dmMachine: MachineConfig<SDSContext, any, SDSEvent> = {
         RECOGNISED: [
           {
             target: "greeting",
+			cond: (context) => !!getEntity(context, "name"),
             actions: assign({
-              username: (context) => context.recResult[0].utterance,
+              username: (context) => getEntity(context, "name"),
             }),
           },
+		  {
+			target: "greeting",
+			actions: assign({
+              username: (context) => "user",
+            })
+		  },
         ],
         TIMEOUT: ".prompt",
       },
@@ -216,9 +224,11 @@ export const dmMachine: MachineConfig<SDSContext, any, SDSEvent> = {
           {
             target: "meeting_init",
             cond: (context) => getIntent(context) === "create_meeting",},
+			//cond: (context) => context.nluResult.prediction.topIntent === "create_meeting",},
 		  {
             target: "access_kd",
-            cond: (context) => !!parseName(context),
+            //cond: (context) => !!parseName(context),
+			cond: (context) => getIntent(context) === "access_kd",
 			actions: assign({
               name: (context) => parseName(context),
             })
@@ -283,9 +293,11 @@ export const dmMachine: MachineConfig<SDSContext, any, SDSEvent> = {
 				value: `${context.data.Abstract.split(".")[0]}`,})),
 				on: {ENDSPEECH: 'ask_action'},
 				},
-			failure: {on: {
-					RETRY: { target: 'request' }
-			},},
+			failure: {entry: send((context) => ({
+				type: "SPEAK",
+				value: `I don't know who ${context.name} is. I am sorry.`,})),
+				on: {ENDSPEECH: 'ask'},
+				},
 			ask: {
 				entry: send("LISTEN"),
 			},

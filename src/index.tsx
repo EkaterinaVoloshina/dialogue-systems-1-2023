@@ -385,7 +385,8 @@ const getIntents = (context: SDSContext) =>
     new Request(context.parameters.azureNLUUrl, {
       method: "POST",
       headers: {
-        "Ocp-Apim-Subscription-Key": context.parameters.azureNLUKey,
+        //"Ocp-Apim-Subscription-Key": context.parameters.azureNLUKey,
+		"Ocp-Apim-Subscription-Key": "2fa33d1219314399a4d890c6f2e7a3b2",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
