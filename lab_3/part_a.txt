@@ -1,0 +1,16 @@
+<!--ID=B7267351-473F-409D-9765-754A8EBCDE05;Version=1|{"VoiceNameToIdMapItems":[{"Id":"e5e4f59b-65c6-42b2-a6e3-5985d1a1ea07","Name":"Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)","ShortName":"en-US-JennyNeural","Locale":"en-US","VoiceType":"StandardVoice"}]}-->
+<!--ID=FCB40C2B-1F9F-4C26-B1A1-CF8E67BE07D1;Version=1|{"Files":{}}-->
+<!--ID=5B95B1CC-2C7B-494F-B746-CF22A0E779B7;Version=1|{"Locales":{"en-US":{"AutoApplyCustomLexiconFiles":[{}]}}}-->
+<speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xmlns:emo="http://www.w3.org/2009/10/emotionml" version="1.0" xml:lang="en-US"><voice name="en-US-JennyNeural">
+I have your calendar <emphasis>open</emphasis>. 
+<break strength="medium"/> 
+For what  date ? 
+<break strength="medium"/> 
+What <emphasis>time</emphasis> would you like to start? 
+<break strength="medium"/> 
+How much time do you want to block out? 
+<break strength="medium"/> 
+What shall we call this? 
+<break strength="medium"/> 
+Ok.  I will make an appointment titled lunch for <say-as interpret-as="date">the first of March </say-as> at <say-as interpret-as="time">15:00</say-as>!
+</voice></speak>

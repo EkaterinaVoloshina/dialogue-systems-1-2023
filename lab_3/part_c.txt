@@ -1,0 +1,39 @@
+<!--ID=B7267351-473F-409D-9765-754A8EBCDE05;Version=1|{"VoiceNameToIdMapItems":[{"Id":"96d631b1-d438-48ba-aa46-6293707d2071","Name":"Microsoft Server Speech Text to Speech Voice (en-US, TonyNeural)","ShortName":"en-US-TonyNeural","Locale":"en-US","VoiceType":"StandardVoice"}]}-->
+<!--ID=FCB40C2B-1F9F-4C26-B1A1-CF8E67BE07D1;Version=1|{"Files":{}}-->
+<!--ID=5B95B1CC-2C7B-494F-B746-CF22A0E779B7;Version=1|{"Locales":{"en-US":{"AutoApplyCustomLexiconFiles":[{}]}}}-->
+<speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xmlns:emo="http://www.w3.org/2009/10/emotionml" version="1.0" xml:lang="en-US"><voice name="en-US-TonyNeural">
+<s /><mstts:express-as style="sad"><prosody rate="+25.00%" volume="soft">I wish you were <phoneme alphabet="ipa" ph="hɪə">here</phoneme>, <phoneme alphabet="ipa" ph="dɪə">dear</phoneme>,</prosody>
+<prosody volume="soft" rate="25%"><break strength="weak" /> 
+I wish you were <phoneme alphabet="ipa" ph="hɪə">here</phoneme>.
+<break strength="weak" /> 
+I wish you <phoneme alphabet="ipa" ph="sat">sat</phoneme> on the sofa
+<break strength="none" /> 
+and I <phoneme alphabet="ipa" ph="sat">sat</phoneme> <phoneme alphabet="ipa" ph="nɪə">near</phoneme>.
+<break strength="weak" /> 
+The handkerchief could be yours,
+<break strength="none" /> 
+the tear could be mine,  <break strength="x-weak" /> chin <phoneme alphabet="ipa" ph="baʊŋd">bound</phoneme>.
+<break strength="weak" /> 
+Though it could be, of course,
+<break strength="none" /> 
+the other way <phoneme alphabet="ipa" ph="ˈraʊŋd">around</phoneme>.
+<break strength="weak" /> 
+
+I wish you were <phoneme alphabet="ipa" ph="hɪə">here</phoneme>, <phoneme alphabet="ipa" ph="dɪə">dear</phoneme>,
+<break strength="weak" /> 
+I wish you were <phoneme alphabet="ipa" ph="hɪə">here</phoneme>.
+<break strength="weak" /> 
+I wish we were in my car,
+<break strength="none" /> 
+and you'd shift the <phoneme alphabet="ipa" ph="gɪə">gear</phoneme>.
+<break strength="weak" /> 
+We'd find ourselves <phoneme alphabet="ipa" ph="ɛlsˈwɛə">elsewhere</phoneme>,
+<break strength="none" /> 
+on an unknown shore.
+<break strength="none" /> 
+Or else we'd <phoneme alphabet="ipa" ph="ɹɪˈpɛə">repair</phoneme>
+<break strength="none" /> 
+to where we've been before.
+ </prosody>
+</mstts:express-as><s />
+</voice></speak>
